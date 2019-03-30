@@ -3,8 +3,8 @@ The basic idea behind this project is to make it easy to manage resumes. Resume 
 
 # Project Info
 This project is built on Lumen 5.5 and Angular 7.
-1. Lumen is installed in "<root-dir>/api" directory
-2. Angular is placed in "<root-dir>"
+1. Lumen is installed in "root-dir/api" directory
+2. Angular is placed in "root-dir"
 
 
 # Pre-requisite
@@ -20,15 +20,15 @@ Download this repo on your local machine and place the project in htdocs of Xamp
 
 2. Installing Dependencies
  - Run 'npm install' in root directory
- - Run 'composer install' in <root-dir>/api directory.
+ - Run 'composer install' in "root-dir/api" directory.
 
 3. Changing Config Variables
- - For Lumen, change file "<root-dir>/api/.env"
- - For Angular, change file "<root-dir>/src/app/configs/environment.ts"
+ - For Lumen, change file "root-dir/api/.env"
+ - For Angular, change file "root-dir/src/app/configs/environment.ts"
 
 
 # Running Up The Project
-Run command "ng serve" in CMD or VS Code Terminal opened in "<root-dir>" of this project.
+Run command "ng serve" in CMD or VS Code Terminal opened in "root-dir" of this project.
 
 
 
