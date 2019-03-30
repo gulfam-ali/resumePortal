@@ -1,0 +1,216 @@
+<div class="container p-0">
+  <div class="row pt-3 pb-2 border-bottom">
+    <div class="col-12">
+      <h1>Create Resume</h1>
+    </div>
+  </div>
+
+  <form action="" method="POST">
+    <div class="row pt-4">
+      <div class="col-md-4 col-sm-6 col-12 pb-3">
+        <label>Resume Title</label>
+        <span class="ml-2" placement="top" ngbPopover="Title for your reference" popoverTitle="Resume Title"><i class="far fa-question-circle"></i></span>
+        <input type="text" name="resume_title" class="form-control" placeholder="Resume Title" required>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 pb-3">
+        <label>Target Role</label>
+        <span class="ml-2" placement="top" ngbPopover="Role for which this resume is specifically crafted" popoverTitle="Target Role"><i class="far fa-question-circle"></i></span>
+        <input type="text" name="target_role" class="form-control" placeholder="Target Role" required>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 pb-3">
+        <label>Target Organisation</label>
+        <span class="ml-2" placement="top" ngbPopover="Organisation for which this resume is crafted." popoverTitle="Target Organisation"><i class="far fa-question-circle"></i></span>
+        <input type="text" name="target_role" class="form-control" placeholder="Target Organisation" required>
+      </div>
+    </div>
+    
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <p class="lead m-0 text-gray">Basic Info</p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-12 form-group">
+        <label>Full Name</label>
+        <input type="text" name="full_name" class="form-control" placeholder="Full Name" requied>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 form-group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Email" requied>
+      </div>
+      <div class="col-md-4 col-sm-6 col-12 form-group">
+        <label>Phone</label>
+        <input type="tel" name="phone" class="form-control" placeholder="Phone" requied>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <span class="lead text-gray">Education Info</span>
+        <span class="btn btn-xs btn-light float-right" (click)="openVerticallyCentered(education)">Add More</span>
+      </div>
+      <div class="col-md-12 item-card-container">
+        <div class="item-card row">
+          <div class="col-md-6">
+            <p class="text-bold mb-0">B.Tech in Computer Science</p>
+            <p class="text-gray text-small mb-0">FIET Bareilly</p>
+          </div>
+          <div class="col-md-6 text-right">
+            <p class="text-bold mb-0">2018 - 2019</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <span class="lead text-gray">Work Experience</span>
+        <span class="btn btn-xs btn-light float-right" (click)="openVerticallyCentered(experience)">Add More</span>
+      </div>
+      <div class="col-md-12 item-card-container">
+        <div class="item-card row">
+          <div class="col-md-8 col-sm-8 col-7">
+            <p class="text-bold mb-0">Sr. PHP Developer</p>
+            <p class="text-gray text-small mb-0">Proctur - Your Pocket Classroom, Pune</p>
+          </div>
+          <div class="col-md-4 col-sm-8 col-7 text-right">
+            <button class="btn btn-xs btn-light">Remove</button>
+            <p class="text-bold mb-0">Apr, 2018 - Present</p>
+          </div>
+          <div class="col-md-12 pt-2">
+            <ul class="pl-4">
+              <li>Responsible for designing the project
+                architecture, database schema, APIs
+                specifications and leading the developers to
+                successfully deliver the features.</li>
+              <li>Responsible for designing the project
+                architecture, database schema, APIs
+                specifications and leading the developers to
+                successfully deliver the features.</li>
+              <li>Responsible for designing the project
+                architecture, database schema, APIs
+                specifications and leading the developers to
+                successfully deliver the features.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <label>Technical Skills</label>
+        <tag-input [(ngModel)]='technical_skills' name="technical_skills"></tag-input>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <label>Interpersonal Skills</label>
+        <tag-input [(ngModel)]='personal_skills' name="personal_skills"></tag-input>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <label>Profile Tagline</label>
+        <textarea name="tagline" class="form-control" placeholder="A highly motivated, passionate and output oriented Full Stack Developer having 2 years of work experience in software development."></textarea>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-md-12 pb-3">
+        <span class="btn btn-primary pl-4 pr-4">Save</span>
+        &nbsp;
+        <a class="btn btn-light" [routerLink]="['../listing']">Cancel</a>
+        &nbsp;
+        
+        <span class="btn btn-outline-primary float-right">Preview</span>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #education let-modal>
+  <div class="modal-header pt-2 pb-2 text-small text-gray">
+    <h5 class="modal-title">Education Info</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body row pt-3 pb-3 pl-0 pr-0">
+    <div class="col-md-6 col-sm-6 col-12 form-group">
+      <label>Education</label>
+      <select name="education_standard" class="form-control"  required>
+        <option value="1">Intermediate</option>
+        <option value="2">Graduation</option>
+        <option value="3">Post Graduation</option>
+      </select>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12 form-group">
+      <label>Course/Stream</label>
+      <input type="text" name="course" class="form-control" placeholder="B.Tech" requied>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12 form-group">
+      <label>College/University</label>
+      <input type="text" name="college" class="form-control" placeholder="College" requied>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12 row mb-3 form-group">
+      <div class="col-12 p-0">
+          <label>Course Session</label>
+      </div>
+      <div class="col-6 pl-0">
+        <input type="number" name="start_year" min="1901" max="2019" placeholder="2011" class="form-control">
+      </div>
+      <div class="col-6 p-0">
+        <input type="number" name="end_year" min="1901" max="2025" placeholder="2015" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-12 text-right pt-2 pb-0">
+      <button class="btn btn-light" (click)="modal.close('Close click')">Cancel</button>
+      &nbsp;&nbsp;
+      <button class="btn btn-primary pr-5 pl-5" (click)="modal.close('Close click')">Save</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #experience let-modal>
+  <div class="modal-header pt-2 pb-2 text-small text-gray">
+    <h5 class="modal-title">Work Experience</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body row pt-3 pb-3 pl-0 pr-0">
+    <div class="col-md-6 col-sm-6 col-12 form-group">
+      <label>Organisation Name</label>
+      <input type="text" name="company" class="form-control" placeholder="Organisation Name" requied>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12 form-group">
+      <label>Designation</label>
+      <input type="text" name="designation" class="form-control" placeholder="Designation" required>
+    </div>
+    <div class="col-12 form-group">
+      <label class="mb-0">Summary</label>
+      <p class="mb-2 text-gray text-small">(Lines can be separated by Enter)</p>
+      <textarea class="form-control" name="summary" placeholder="Write work summary here."></textarea>
+    </div>
+    <div class="col-md-6 col-sm-6 col-12 row mb-3 form-group">
+      <div class="col-12 p-0">
+          <label>Duration</label>
+      </div>
+      <div class="col-6 pl-0">
+        <input type="number" name="start_year" min="1901" max="2019" placeholder="2011" class="form-control">
+      </div>
+      <div class="col-6 p-0">
+        <input type="number" name="end_year" min="1901" max="2025" placeholder="2015" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-12 text-right pt-2 pb-0">
+      <button class="btn btn-light" (click)="modal.close('Close click')">Cancel</button>
+      &nbsp;&nbsp;
+      <button class="btn btn-primary pr-5 pl-5" (click)="modal.close('Close click')">Save</button>
+    </div>
+  </div>
+</ng-template>

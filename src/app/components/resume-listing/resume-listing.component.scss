@@ -1,0 +1,35 @@
+.resume-item-container{
+    padding: 0.5em;
+    overflow: hidden;
+    display: flex;
+    .resume-card{
+        border: 1px solid #e8e8e8;
+        box-shadow: 0pt 0pt 6pt #eee;
+        border-radius: 0.4em;
+        .resume-name{
+            padding: 0.4em 0.6em;
+            font-size: 1.4em;
+            border-bottom: 1pt solid #ccc;
+            margin-bottom: 0.5em;
+            color: #07f;
+        }
+        .info-item{
+            padding: 0.4em 0.8em;
+            p{
+                margin: 0;
+            }
+        }
+        .btn-action{
+            padding: 0.4em 0.8em;
+            text-align: center;
+            border-top: 1px solid #eee;
+            margin-top: 0.5em;
+            color: #777;
+            cursor: pointer;
+            &:hover{
+                background: #f7f7f7;
+                color: #000;
+            }
+        }
+    }
+}

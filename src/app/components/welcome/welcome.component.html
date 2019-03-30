@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-5 pb-5 text-center">
+      <h1 class="m-0">Resume Portal</h1>
+    </div>
+    <div class="col-md-12 col-sm-12 col-12">
+      <div class="card pl-4 pb-4 pr-4 pt-2">
+        <div class="row pb-4 text-center">
+          <div class="col-md-6 col-sm-6 col-6 p-2 card-label" [ngClass]="{'active': cardActive == 'login'}" (click)="cardActive = 'login'">
+            <span class="text-bold lead">Login</span>
+          </div>
+          <div class="col-md-6 col-sm-6 col-6 p-2 card-label" [ngClass]="{'active': cardActive == 'register'}" (click)="cardActive = 'register'">
+            <span class="text-bold lead">Register</span>
+          </div>
+        </div>
+        <div class="row" *ngIf="cardActive == 'login'">
+          <div class="col-md-12 p-0">
+            <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="loginEmail" [(ngModel)]="login.email" id="loginEmail" #loginEmail="ngModel"  (blur)="checkEmail(login.email)" (keyup)="checkEmail(login.email)" placeholder="Email" class="form-control " required>
+                <div *ngIf="loginEmail.valid && (loginEmail.dirty || loginEmail.touched)" >
+                    <div *ngIf="!emailValid" class="alert alert-danger">
+                      Enter a valid email
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="loginPassword" [(ngModel)]="login.password" id="loginPassword" #loginPassword="ngModel"  placeholder="Password" class="form-control"  required>
+              </div>
+              <button class="btn btn-block btn-primary" [disabled]="(!loginForm.form.valid) ">Login</button>
+            </form>
+          </div>
+        </div>
+        <div class="row" *ngIf="cardActive == 'register'">
+          <div class="col-md-12 p-0">
+            <form #registerForm="ngForm" (ngSubmit)="registerUser()">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="full_name" [(ngModel)]="register.fullName" id="fullName" #fullName="ngModel" placeholder="Full Name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" [(ngModel)]="register.email" id="registerEmail" #registerEmail="ngModel" (blur)="checkEmail(register.email)" (keyup)="checkEmail(register.email)"  placeholder="Email" class="form-control" required>
+                <div *ngIf="registerEmail.valid && (registerEmail.dirty || registerEmail.touched)" >
+                    <div *ngIf="!emailValid" class="alert alert-danger">
+                      Enter a valid email
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" [(ngModel)]="register.password" minlength="4" pattern="[a-zA-Z#@0-9]*" id="registerPassword" #registerPassword="ngModel" placeholder="Password" class="form-control" required>
+                <div *ngIf="registerPassword.invalid && (registerPassword.dirty || registerPassword.touched)" class="alert alert-danger">
+                    <div *ngIf="registerPassword.errors.required">
+                      Password is required
+                    </div>
+                    <div *ngIf="registerPassword.errors.minlength">
+                      Password must not less than 4 characters
+                    </div>
+                    <div *ngIf="registerPassword.errors.pattern">
+                      Only Alphabets, Numbers, @ and # characters are allowed
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Retype Password</label>
+                <input type="password" name="cpassword" [(ngModel)]="register.cpassword" id="registerCpassword" #registerCpassword="ngModel" placeholder="Retype Password" class="form-control" required>
+                <div [hidden]="registerCpassword.pristine " >
+                    <div [hidden]="(register.cpassword == register.password) || registerCpassword.invalid" class="alert alert-danger">Password don't match</div>
+                </div>
+              </div>
+              <button class="btn btn-block btn-primary" [disabled]="(!registerForm.form.valid) ">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

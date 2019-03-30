@@ -1,0 +1,10 @@
+.container{
+    max-width: 600px;
+}
+
+.card-label{
+    cursor: pointer;
+    &.active{
+        border-bottom: 2pt solid #07f;
+    }
+}
